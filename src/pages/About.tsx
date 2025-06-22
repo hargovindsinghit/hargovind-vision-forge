@@ -13,7 +13,7 @@ const About = () => {
   };
 
   return (
-    <div className={`min-h-screen ${isDark ? 'dark bg-gray-900' : 'bg-white'} transition-colors duration-300`}>
+    <div className={`min-h-screen font-didot ${isDark ? 'dark bg-gray-900' : 'bg-white'} transition-colors duration-300`}>
       {/* Header */}
       <header className={`fixed w-full z-50 ${isDark ? 'bg-gray-900/95' : 'bg-white/95'} backdrop-blur-sm border-b ${isDark ? 'border-gray-800' : 'border-gray-200'}`}>
         <div className="container mx-auto px-6 py-4">
@@ -47,10 +47,10 @@ const About = () => {
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-6">
         <div className="container mx-auto text-center">
-          <h1 className={`text-5xl md:text-6xl font-bold mb-6 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+          <h1 className={`text-5xl md:text-6xl font-light mb-6 ${isDark ? 'text-white' : 'text-gray-900'} tracking-wide`}>
             About <span className="text-cyan-400">Hargovind Corporation</span>
           </h1>
-          <p className={`text-xl md:text-2xl ${isDark ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto`}>
+          <p className={`text-xl md:text-2xl font-light ${isDark ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto leading-relaxed`}>
             We are pioneers in next-generation technology, dedicated to creating innovative solutions that transform industries and improve lives.
           </p>
         </div>
@@ -62,22 +62,22 @@ const About = () => {
           <div className="grid md:grid-cols-3 gap-8">
             <div className={`p-8 rounded-xl ${isDark ? 'bg-gray-800' : 'bg-gray-50'}`}>
               <Target className="w-12 h-12 text-cyan-400 mb-4" />
-              <h3 className={`text-2xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>Our Mission</h3>
-              <p className={isDark ? 'text-gray-300' : 'text-gray-600'}>
+              <h3 className={`text-2xl font-light mb-4 ${isDark ? 'text-white' : 'text-gray-900'} tracking-wide`}>Our Mission</h3>
+              <p className={`${isDark ? 'text-gray-300' : 'text-gray-600'} font-light leading-relaxed`}>
                 To develop and deploy cutting-edge technology solutions that solve complex challenges across multiple industries, empowering businesses and individuals to achieve more.
               </p>
             </div>
             <div className={`p-8 rounded-xl ${isDark ? 'bg-gray-800' : 'bg-gray-50'}`}>
               <Eye className="w-12 h-12 text-cyan-400 mb-4" />
-              <h3 className={`text-2xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>Our Vision</h3>
-              <p className={isDark ? 'text-gray-300' : 'text-gray-600'}>
+              <h3 className={`text-2xl font-light mb-4 ${isDark ? 'text-white' : 'text-gray-900'} tracking-wide`}>Our Vision</h3>
+              <p className={`${isDark ? 'text-gray-300' : 'text-gray-600'} font-light leading-relaxed`}>
                 To be the global leader in technological innovation, creating a future where AI, robotics, XR, and biotechnology seamlessly integrate to enhance human potential.
               </p>
             </div>
             <div className={`p-8 rounded-xl ${isDark ? 'bg-gray-800' : 'bg-gray-50'}`}>
               <Award className="w-12 h-12 text-cyan-400 mb-4" />
-              <h3 className={`text-2xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>Our Values</h3>
-              <p className={isDark ? 'text-gray-300' : 'text-gray-600'}>
+              <h3 className={`text-2xl font-light mb-4 ${isDark ? 'text-white' : 'text-gray-900'} tracking-wide`}>Our Values</h3>
+              <p className={`${isDark ? 'text-gray-300' : 'text-gray-600'} font-light leading-relaxed`}>
                 Innovation, integrity, collaboration, and excellence drive everything we do. We believe in ethical technology development and sustainable solutions.
               </p>
             </div>
@@ -88,7 +88,7 @@ const About = () => {
       {/* Team Section */}
       <section className={`py-16 px-6 ${isDark ? 'bg-gray-800' : 'bg-gray-100'}`}>
         <div className="container mx-auto">
-          <h2 className={`text-4xl font-bold text-center mb-12 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+          <h2 className={`text-4xl font-light text-center mb-12 ${isDark ? 'text-white' : 'text-gray-900'} tracking-wide`}>
             Leadership Team
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -99,9 +99,9 @@ const About = () => {
             ].map((member, index) => (
               <div key={index} className={`p-6 rounded-xl ${isDark ? 'bg-gray-900' : 'bg-white'} text-center`}>
                 <div className={`w-24 h-24 rounded-full ${isDark ? 'bg-gray-700' : 'bg-gray-200'} mx-auto mb-4`}></div>
-                <h3 className={`text-xl font-semibold mb-2 ${isDark ? 'text-white' : 'text-gray-900'}`}>{member.name}</h3>
-                <p className="text-cyan-400 mb-2">{member.role}</p>
-                <p className={isDark ? 'text-gray-400' : 'text-gray-600'}>{member.expertise}</p>
+                <h3 className={`text-xl font-light mb-2 ${isDark ? 'text-white' : 'text-gray-900'} tracking-wide`}>{member.name}</h3>
+                <p className="text-cyan-400 mb-2 font-light">{member.role}</p>
+                <p className={`${isDark ? 'text-gray-400' : 'text-gray-600'} font-light`}>{member.expertise}</p>
               </div>
             ))}
           </div>
