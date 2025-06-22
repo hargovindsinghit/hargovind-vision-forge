@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Cpu, Robot, Eye, Dna, Menu, X, Moon, Sun } from 'lucide-react';
+import { ArrowRight, Cpu, Bot, Eye, Dna, Menu, X, Moon, Sun } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Index = () => {
@@ -81,7 +81,7 @@ const Index = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               { icon: Cpu, title: "AI Applications", desc: "Advanced machine learning and neural networks" },
-              { icon: Robot, title: "Robotics Systems", desc: "Autonomous and intelligent robotic solutions" },
+              { icon: Bot, title: "Robotics Systems", desc: "Autonomous and intelligent robotic solutions" },
               { icon: Eye, title: "XR Experiences", desc: "Immersive virtual and augmented reality" },
               { icon: Dna, title: "Biotech Platforms", desc: "Cutting-edge biotechnology innovations" }
             ].map((domain, index) => (
