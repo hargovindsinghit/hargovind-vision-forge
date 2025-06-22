@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Cpu, Bot, Eye, Dna, Menu, X, Moon, Sun } from 'lucide-react';
@@ -14,25 +13,36 @@ const Index = () => {
   };
 
   return (
-    <div className={`min-h-screen ${isDark ? 'dark bg-gray-900' : 'bg-white'} transition-colors duration-300`}>
+    <div 
+      className={`min-h-screen relative ${isDark ? 'dark' : ''} transition-colors duration-300`}
+      style={{
+        backgroundImage: 'url(https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=80)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed'
+      }}
+    >
+      {/* Dark overlay for better readability */}
+      <div className={`absolute inset-0 ${isDark ? 'bg-gray-900/85' : 'bg-white/90'} backdrop-blur-sm`}></div>
+      
       {/* Header */}
-      <header className={`fixed w-full z-50 ${isDark ? 'bg-gray-900/95' : 'bg-white/95'} backdrop-blur-sm border-b ${isDark ? 'border-gray-800' : 'border-gray-200'}`}>
-        <div className="container mx-auto px-6 py-4">
+      <header className={`fixed w-full z-50 ${isDark ? 'bg-gray-900/80' : 'bg-white/80'} backdrop-blur-md border-b ${isDark ? 'border-cyan-500/20' : 'border-gray-200'}`}>
+        <div className="container mx-auto px-6 py-4 relative">
           <div className="flex items-center justify-between">
             <div className="text-2xl font-bold">
               <span className={isDark ? 'text-white' : 'text-gray-900'}>Hargovind</span>
-              <span className="text-cyan-400"> Corporation</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500"> Corporation</span>
             </div>
             
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
-              <Link to="/" className={`${isDark ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition-colors`}>Home</Link>
-              <Link to="/about" className={`${isDark ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition-colors`}>About</Link>
-              <Link to="/services" className={`${isDark ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition-colors`}>Services</Link>
-              <Link to="/case-studies" className={`${isDark ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition-colors`}>Case Studies</Link>
-              <Link to="/contact" className={`${isDark ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition-colors`}>Contact</Link>
-              <button onClick={toggleTheme} className={`p-2 rounded-lg ${isDark ? 'hover:bg-gray-800' : 'hover:bg-gray-100'}`}>
-                {isDark ? <Sun className="w-5 h-5 text-yellow-400" /> : <Moon className="w-5 h-5 text-gray-600" />}
+              <Link to="/" className={`${isDark ? 'text-gray-300 hover:text-cyan-400' : 'text-gray-600 hover:text-blue-600'} transition-colors font-medium`}>Home</Link>
+              <Link to="/about" className={`${isDark ? 'text-gray-300 hover:text-cyan-400' : 'text-gray-600 hover:text-blue-600'} transition-colors font-medium`}>About</Link>
+              <Link to="/services" className={`${isDark ? 'text-gray-300 hover:text-cyan-400' : 'text-gray-600 hover:text-blue-600'} transition-colors font-medium`}>Services</Link>
+              <Link to="/case-studies" className={`${isDark ? 'text-gray-300 hover:text-cyan-400' : 'text-gray-600 hover:text-blue-600'} transition-colors font-medium`}>Case Studies</Link>
+              <Link to="/contact" className={`${isDark ? 'text-gray-300 hover:text-cyan-400' : 'text-gray-600 hover:text-blue-600'} transition-colors font-medium`}>Contact</Link>
+              <button onClick={toggleTheme} className={`p-2 rounded-lg ${isDark ? 'hover:bg-cyan-500/20' : 'hover:bg-blue-100'} transition-colors`}>
+                {isDark ? <Sun className="w-5 h-5 text-cyan-400" /> : <Moon className="w-5 h-5 text-blue-600" />}
               </button>
             </nav>
 
@@ -41,30 +51,30 @@ const Index = () => {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="md:hidden p-2"
             >
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isMenuOpen ? <X className={`w-6 h-6 ${isDark ? 'text-white' : 'text-gray-900'}`} /> : <Menu className={`w-6 h-6 ${isDark ? 'text-white' : 'text-gray-900'}`} />}
             </button>
           </div>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="pt-20 pb-16 px-6">
-        <div className="container mx-auto text-center">
-          <div className="max-w-4xl mx-auto">
-            <h1 className={`text-5xl md:text-7xl font-bold mb-6 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+      <section className="pt-32 pb-20 px-6 relative">
+        <div className="container mx-auto text-center relative z-10">
+          <div className="max-w-5xl mx-auto">
+            <h1 className={`text-6xl md:text-8xl font-bold mb-8 ${isDark ? 'text-white' : 'text-gray-900'} leading-tight`}>
               Building Tomorrow's
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 animate-pulse">
                 Technology, Today
               </span>
             </h1>
-            <p className={`text-xl md:text-2xl mb-8 ${isDark ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto`}>
-              Hargovind Corporation develops cutting-edge AI applications, robotics systems, XR experiences, and biotech platforms that shape the future.
+            <p className={`text-xl md:text-2xl mb-10 ${isDark ? 'text-gray-200' : 'text-gray-700'} max-w-4xl mx-auto leading-relaxed`}>
+              Hargovind Corporation develops cutting-edge AI applications, robotics systems, XR experiences, and biotech platforms that shape the future of human potential.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-8 py-3 text-lg">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <Button className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white px-10 py-4 text-lg shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-300 hover:scale-105">
                 See Our Solutions <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
-              <Button variant="outline" className={`px-8 py-3 text-lg ${isDark ? 'border-gray-600 text-gray-300 hover:bg-gray-800' : 'border-gray-300 text-gray-700 hover:bg-gray-50'}`}>
+              <Button variant="outline" className={`px-10 py-4 text-lg ${isDark ? 'border-cyan-400/50 text-cyan-400 hover:bg-cyan-400/10 backdrop-blur-sm' : 'border-blue-400 text-blue-600 hover:bg-blue-50'} transition-all duration-300 hover:scale-105`}>
                 Get a Demo
               </Button>
             </div>
@@ -73,24 +83,28 @@ const Index = () => {
       </section>
 
       {/* Technology Domains */}
-      <section className="py-16 px-6">
-        <div className="container mx-auto">
-          <h2 className={`text-4xl font-bold text-center mb-12 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+      <section className="py-20 px-6 relative">
+        <div className="container mx-auto relative z-10">
+          <h2 className={`text-5xl font-bold text-center mb-16 ${isDark ? 'text-white' : 'text-gray-900'}`}>
             Our Technology Domains
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { icon: Cpu, title: "AI Applications", desc: "Advanced machine learning and neural networks" },
-              { icon: Bot, title: "Robotics Systems", desc: "Autonomous and intelligent robotic solutions" },
-              { icon: Eye, title: "XR Experiences", desc: "Immersive virtual and augmented reality" },
-              { icon: Dna, title: "Biotech Platforms", desc: "Cutting-edge biotechnology innovations" }
+              { icon: Cpu, title: "AI Applications", desc: "Advanced machine learning and neural networks", gradient: "from-cyan-500 to-blue-600" },
+              { icon: Bot, title: "Robotics Systems", desc: "Autonomous and intelligent robotic solutions", gradient: "from-blue-500 to-purple-600" },
+              { icon: Eye, title: "XR Experiences", desc: "Immersive virtual and augmented reality", gradient: "from-purple-500 to-pink-600" },
+              { icon: Dna, title: "Biotech Platforms", desc: "Cutting-edge biotechnology innovations", gradient: "from-pink-500 to-red-600" }
             ].map((domain, index) => (
-              <div key={index} className={`p-6 rounded-xl ${isDark ? 'bg-gray-800 hover:bg-gray-750' : 'bg-gray-50 hover:bg-gray-100'} transition-all duration-300 hover:scale-105 cursor-pointer`}>
-                <domain.icon className="w-12 h-12 text-cyan-400 mb-4" />
-                <h3 className={`text-xl font-semibold mb-2 ${isDark ? 'text-white' : 'text-gray-900'}`}>{domain.title}</h3>
-                <p className={isDark ? 'text-gray-300' : 'text-gray-600'}>{domain.desc}</p>
-                <div className="mt-4">
-                  <span className="text-cyan-400 hover:text-cyan-300 cursor-pointer">Learn More →</span>
+              <div key={index} className={`group p-8 rounded-2xl ${isDark ? 'bg-gray-800/40 hover:bg-gray-800/60 border border-cyan-500/20' : 'bg-white/40 hover:bg-white/60 border border-blue-200'} backdrop-blur-md transition-all duration-500 hover:scale-105 cursor-pointer hover:shadow-2xl ${isDark ? 'hover:shadow-cyan-500/20' : 'hover:shadow-blue-500/20'}`}>
+                <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${domain.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                  <domain.icon className="w-8 h-8 text-white" />
+                </div>
+                <h3 className={`text-2xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>{domain.title}</h3>
+                <p className={`${isDark ? 'text-gray-300' : 'text-gray-600'} text-lg leading-relaxed mb-6`}>{domain.desc}</p>
+                <div className="mt-auto">
+                  <span className={`text-transparent bg-clip-text bg-gradient-to-r ${domain.gradient} hover:from-cyan-300 hover:to-blue-400 cursor-pointer font-semibold text-lg group-hover:translate-x-2 transition-transform duration-300 inline-block`}>
+                    Learn More →
+                  </span>
                 </div>
               </div>
             ))}
@@ -99,24 +113,24 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className={`py-16 px-6 ${isDark ? 'bg-gray-800' : 'bg-gray-100'}`}>
-        <div className="container mx-auto text-center">
-          <h2 className={`text-4xl font-bold mb-6 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+      <section className={`py-20 px-6 relative ${isDark ? 'bg-gray-800/30' : 'bg-white/30'} backdrop-blur-md`}>
+        <div className="container mx-auto text-center relative z-10">
+          <h2 className={`text-5xl font-bold mb-8 ${isDark ? 'text-white' : 'text-gray-900'}`}>
             Ready to Transform Your Business?
           </h2>
-          <p className={`text-xl mb-8 ${isDark ? 'text-gray-300' : 'text-gray-600'} max-w-2xl mx-auto`}>
-            Partner with us to leverage cutting-edge technology and drive innovation in your industry.
+          <p className={`text-xl mb-10 ${isDark ? 'text-gray-200' : 'text-gray-700'} max-w-3xl mx-auto leading-relaxed`}>
+            Partner with us to leverage cutting-edge technology and drive innovation in your industry. The future starts today.
           </p>
           <Link to="/contact">
-            <Button className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-8 py-3 text-lg">
-              Start Your Project <ArrowRight className="ml-2 w-5 h-5" />
+            <Button className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white px-12 py-4 text-xl shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-300 hover:scale-105">
+              Start Your Project <ArrowRight className="ml-3 w-6 h-6" />
             </Button>
           </Link>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className={`py-12 px-6 ${isDark ? 'bg-gray-900 border-t border-gray-800' : 'bg-white border-t border-gray-200'}`}>
+      <footer className={`py-16 px-6 relative ${isDark ? 'bg-gray-900/80 border-t border-cyan-500/20' : 'bg-white/80 border-t border-blue-200'} backdrop-blur-md`}>
         <div className="container mx-auto">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
@@ -131,9 +145,9 @@ const Index = () => {
             <div>
               <h3 className={`font-semibold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>Company</h3>
               <ul className="space-y-2">
-                <li><Link to="/about" className={`${isDark ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition-colors`}>About Us</Link></li>
-                <li><Link to="/services" className={`${isDark ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition-colors`}>Services</Link></li>
-                <li><Link to="/case-studies" className={`${isDark ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition-colors`}>Case Studies</Link></li>
+                <li><Link to="/about" className={`${isDark ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-blue-600'} transition-colors font-medium`}>About Us</Link></li>
+                <li><Link to="/services" className={`${isDark ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-blue-600'} transition-colors font-medium`}>Services</Link></li>
+                <li><Link to="/case-studies" className={`${isDark ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-blue-600'} transition-colors font-medium`}>Case Studies</Link></li>
               </ul>
             </div>
             <div>
@@ -146,8 +160,8 @@ const Index = () => {
             <div>
               <h3 className={`font-semibold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>Follow Us</h3>
               <div className="flex space-x-4">
-                <a href="#" className={`${isDark ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition-colors`}>LinkedIn</a>
-                <a href="#" className={`${isDark ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition-colors`}>Twitter</a>
+                <a href="#" className={`${isDark ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-blue-600'} transition-colors`}>LinkedIn</a>
+                <a href="#" className={`${isDark ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-blue-600'} transition-colors`}>Twitter</a>
               </div>
             </div>
           </div>
