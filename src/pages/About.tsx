@@ -1,10 +1,9 @@
 
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Cpu, Robot, Eye, Dna, Menu, X, Moon, Sun } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Target, Eye, Users, Award, Moon, Sun, Menu, X } from 'lucide-react';
 
-const Index = () => {
+const About = () => {
   const [isDark, setIsDark] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -19,15 +18,14 @@ const Index = () => {
       <header className={`fixed w-full z-50 ${isDark ? 'bg-gray-900/95' : 'bg-white/95'} backdrop-blur-sm border-b ${isDark ? 'border-gray-800' : 'border-gray-200'}`}>
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="text-2xl font-bold">
+            <Link to="/" className="text-2xl font-bold">
               <span className={isDark ? 'text-white' : 'text-gray-900'}>Hargovind</span>
               <span className="text-cyan-400"> Corporation</span>
-            </div>
+            </Link>
             
-            {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
               <Link to="/" className={`${isDark ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition-colors`}>Home</Link>
-              <Link to="/about" className={`${isDark ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition-colors`}>About</Link>
+              <Link to="/about" className="text-cyan-400">About</Link>
               <Link to="/services" className={`${isDark ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition-colors`}>Services</Link>
               <Link to="/case-studies" className={`${isDark ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition-colors`}>Case Studies</Link>
               <Link to="/contact" className={`${isDark ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition-colors`}>Contact</Link>
@@ -36,7 +34,6 @@ const Index = () => {
               </button>
             </nav>
 
-            {/* Mobile Menu Button */}
             <button 
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="md:hidden p-2"
@@ -48,70 +45,66 @@ const Index = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="pt-20 pb-16 px-6">
+      <section className="pt-32 pb-16 px-6">
         <div className="container mx-auto text-center">
-          <div className="max-w-4xl mx-auto">
-            <h1 className={`text-5xl md:text-7xl font-bold mb-6 ${isDark ? 'text-white' : 'text-gray-900'}`}>
-              Building Tomorrow's
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
-                Technology, Today
-              </span>
-            </h1>
-            <p className={`text-xl md:text-2xl mb-8 ${isDark ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto`}>
-              Hargovind Corporation develops cutting-edge AI applications, robotics systems, XR experiences, and biotech platforms that shape the future.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-8 py-3 text-lg">
-                See Our Solutions <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-              <Button variant="outline" className={`px-8 py-3 text-lg ${isDark ? 'border-gray-600 text-gray-300 hover:bg-gray-800' : 'border-gray-300 text-gray-700 hover:bg-gray-50'}`}>
-                Get a Demo
-              </Button>
+          <h1 className={`text-5xl md:text-6xl font-bold mb-6 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+            About <span className="text-cyan-400">Hargovind Corporation</span>
+          </h1>
+          <p className={`text-xl md:text-2xl ${isDark ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto`}>
+            We are pioneers in next-generation technology, dedicated to creating innovative solutions that transform industries and improve lives.
+          </p>
+        </div>
+      </section>
+
+      {/* Mission, Vision, Values */}
+      <section className="py-16 px-6">
+        <div className="container mx-auto">
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className={`p-8 rounded-xl ${isDark ? 'bg-gray-800' : 'bg-gray-50'}`}>
+              <Target className="w-12 h-12 text-cyan-400 mb-4" />
+              <h3 className={`text-2xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>Our Mission</h3>
+              <p className={isDark ? 'text-gray-300' : 'text-gray-600'}>
+                To develop and deploy cutting-edge technology solutions that solve complex challenges across multiple industries, empowering businesses and individuals to achieve more.
+              </p>
+            </div>
+            <div className={`p-8 rounded-xl ${isDark ? 'bg-gray-800' : 'bg-gray-50'}`}>
+              <Eye className="w-12 h-12 text-cyan-400 mb-4" />
+              <h3 className={`text-2xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>Our Vision</h3>
+              <p className={isDark ? 'text-gray-300' : 'text-gray-600'}>
+                To be the global leader in technological innovation, creating a future where AI, robotics, XR, and biotechnology seamlessly integrate to enhance human potential.
+              </p>
+            </div>
+            <div className={`p-8 rounded-xl ${isDark ? 'bg-gray-800' : 'bg-gray-50'}`}>
+              <Award className="w-12 h-12 text-cyan-400 mb-4" />
+              <h3 className={`text-2xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>Our Values</h3>
+              <p className={isDark ? 'text-gray-300' : 'text-gray-600'}>
+                Innovation, integrity, collaboration, and excellence drive everything we do. We believe in ethical technology development and sustainable solutions.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Technology Domains */}
-      <section className="py-16 px-6">
+      {/* Team Section */}
+      <section className={`py-16 px-6 ${isDark ? 'bg-gray-800' : 'bg-gray-100'}`}>
         <div className="container mx-auto">
           <h2 className={`text-4xl font-bold text-center mb-12 ${isDark ? 'text-white' : 'text-gray-900'}`}>
-            Our Technology Domains
+            Leadership Team
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-3 gap-8">
             {[
-              { icon: Cpu, title: "AI Applications", desc: "Advanced machine learning and neural networks" },
-              { icon: Robot, title: "Robotics Systems", desc: "Autonomous and intelligent robotic solutions" },
-              { icon: Eye, title: "XR Experiences", desc: "Immersive virtual and augmented reality" },
-              { icon: Dna, title: "Biotech Platforms", desc: "Cutting-edge biotechnology innovations" }
-            ].map((domain, index) => (
-              <div key={index} className={`p-6 rounded-xl ${isDark ? 'bg-gray-800 hover:bg-gray-750' : 'bg-gray-50 hover:bg-gray-100'} transition-all duration-300 hover:scale-105 cursor-pointer`}>
-                <domain.icon className="w-12 h-12 text-cyan-400 mb-4" />
-                <h3 className={`text-xl font-semibold mb-2 ${isDark ? 'text-white' : 'text-gray-900'}`}>{domain.title}</h3>
-                <p className={isDark ? 'text-gray-300' : 'text-gray-600'}>{domain.desc}</p>
-                <div className="mt-4">
-                  <span className="text-cyan-400 hover:text-cyan-300 cursor-pointer">Learn More →</span>
-                </div>
+              { name: "Dr. Sarah Chen", role: "CEO & Co-Founder", expertise: "AI & Machine Learning" },
+              { name: "Marcus Rodriguez", role: "CTO", expertise: "Robotics & Systems" },
+              { name: "Dr. Priya Patel", role: "Head of Biotech", expertise: "Biotechnology & Research" }
+            ].map((member, index) => (
+              <div key={index} className={`p-6 rounded-xl ${isDark ? 'bg-gray-900' : 'bg-white'} text-center`}>
+                <div className={`w-24 h-24 rounded-full ${isDark ? 'bg-gray-700' : 'bg-gray-200'} mx-auto mb-4`}></div>
+                <h3 className={`text-xl font-semibold mb-2 ${isDark ? 'text-white' : 'text-gray-900'}`}>{member.name}</h3>
+                <p className="text-cyan-400 mb-2">{member.role}</p>
+                <p className={isDark ? 'text-gray-400' : 'text-gray-600'}>{member.expertise}</p>
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className={`py-16 px-6 ${isDark ? 'bg-gray-800' : 'bg-gray-100'}`}>
-        <div className="container mx-auto text-center">
-          <h2 className={`text-4xl font-bold mb-6 ${isDark ? 'text-white' : 'text-gray-900'}`}>
-            Ready to Transform Your Business?
-          </h2>
-          <p className={`text-xl mb-8 ${isDark ? 'text-gray-300' : 'text-gray-600'} max-w-2xl mx-auto`}>
-            Partner with us to leverage cutting-edge technology and drive innovation in your industry.
-          </p>
-          <Link to="/contact">
-            <Button className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-8 py-3 text-lg">
-              Start Your Project <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
-          </Link>
         </div>
       </section>
 
@@ -162,4 +155,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default About;
